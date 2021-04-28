@@ -83,7 +83,9 @@ router.post('/', async (req, res) => {
 
         const object = req.body;
 
-        if (isHamsterObject(object)) {
+        // if (!isHamsterObject(object)) 
+        if(!object.name || typeof object.age !='number')
+        {
             res.sendStatus(400);
             return;
         }
@@ -149,7 +151,7 @@ router.delete('/:id', async (req, res) => {
 function isHamsterObject(hamster) {
     if (!hamster) {
         return false;
-    } else if (!hamster.name || !hamster.age || !hamster.favFoods || !hamster.loves || !hamster.imgName || !hamster.wins || !hamster.defeats || !hamster.games) {
+    } else if (!hamster.name || !hamster.age || !hamster.imgName) {
         return false;
     } else {
         return true;
