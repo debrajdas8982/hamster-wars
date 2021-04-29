@@ -6,9 +6,8 @@ const express = require('express');
 const router = express.Router();
 
 router.get('/', async (req, res) => {
-    const id = req.params.id;
-    const matchRef= db.collection('matches');
-    const snapshot = await matchRef.where('winnerId', '==', `${id}`).get();
+    const matchRef= db.collection('hamsters');
+    const snapshot = await matchRef.orderBy('wins', 'desc').limit(5).get();
     
 
     if(snapshot.empty){
