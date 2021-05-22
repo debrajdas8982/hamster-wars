@@ -5,9 +5,9 @@ const path = require('path')
 
 const hamsters = require('./routes/hamsters')
 const matches = require('./routes/matches')
-const matchWinner = require('./matchWinner')
-const winner = require('./winner')
-const loser = require('./loser')
+const matchWinner = require('./routes/matchWinner')
+const winner = require('./routes/winner')
+const loser = require('./routes/loser')
 
 const PORT = process.env.PORT || 1755
 const staticFolder = path.join(__dirname, 'static')
